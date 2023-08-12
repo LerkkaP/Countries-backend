@@ -13,7 +13,7 @@ app.use(express.static('build'))
 app.get('/weather', async (req, res) => {
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=spain&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=${process.env.REACT_APP_API_KEY}`
     )
     res.json(response.data)
   } catch (error) {
